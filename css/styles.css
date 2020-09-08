@@ -1,0 +1,54 @@
+*,*::after,*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    
+}
+
+
+body{
+    background-image: url(../images/LakeLoiuse.jpg);
+    background-size: cover;
+   
+}
+
+h1{
+    text-align: center;
+    margin-top: 3vh;    
+    display: block;
+    font-weight: 600;
+    color: #0d0d0e
+}
+
+.container{
+    margin-top:3vh;
+    justify-content:center;
+    
+}
+#col1{
+    display: block;
+    margin-top: 3vh;
+    margin-left: 11vw;
+   
+
+}
+#col2{
+    margin-top:7.5vh;
+}
+
+#form1{ 
+    margin-bottom: 1vh;    
+}
+
+#button1{
+    margin-bottom: 4vh;
+
+}
+
+#form2{
+    margin-bottom: 11.2vh;
+
+}
+#button2{
+    margin-left: 1vw;  
+}
