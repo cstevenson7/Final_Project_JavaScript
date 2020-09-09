@@ -94,6 +94,14 @@ function getJson1(){
         humidity_text.innerHTML= humidity_per        
     })
 
+    }
+}
+function abRedirect(){
+    window.location.href= 'ab.html';
+}
+
+function bcRedirect(){
+    window.location.href= 'bc.html';
 }
 
 function clearData(){

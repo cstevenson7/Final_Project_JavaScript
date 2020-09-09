@@ -5,35 +5,58 @@
     
 }
 
-
-body{
-    background-image: url(../images/LakeLoiuse.jpg);
+body.home{
+    background-image: url(../images/bus.jpg);
     background-size: cover;
    
 }
 
-h1{
+.header-text {
+    display: flex;
+    justify-content: center;
+    padding-top: 10%;
+    left: 20rem;
+    top: 10rem;
+    color: white;
+}
+
+/*h1{
     text-align: center;
     margin-top: 3vh;    
     display: block;
     font-weight: 600;
     color: #0d0d0e
+}*/
+body.body_ab{
+    background-image: url(../images/LakeLoiuse.jpg);
+    background-size: cover;
 }
 
-.container{
+body.body_bc{
+    background-image: url(../images/BC_4.jpg);
+    background-size: cover;  
+
+}
+
+.container_ab{
+    height:100%;
     margin-top:3vh;
     justify-content:center;
-    
+    /*background-color:tan*/   
 }
-#col1{
-    display: block;
-    margin-top: 3vh;
-    margin-left: 11vw;
-   
+.container_bc{
+    margin-top:3vh;
+    justify-content:center;
+      
+}
+#col1_hm{ 
+    margin-top:2vh;
+  
 
 }
-#col2{
-    margin-top:7.5vh;
+#col2_hm{
+    margin-top: 2vh;
+ 
 }
 
 #form1{ 
@@ -41,7 +64,8 @@ h1{
 }
 
 #button1{
-    margin-bottom: 4vh;
+    margin-left: 78vh;
+    width: 110px;
 
 }
 
@@ -50,5 +74,5 @@ h1{
 
 }
 #button2{
-    margin-left: 1vw;  
+    margin-left: 3vw;  
 }

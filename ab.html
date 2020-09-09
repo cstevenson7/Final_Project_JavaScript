@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js" defer></script>
+<title>Weather App</title>
+<script src="js/main.js" defer></script>
+<link rel="stylesheet" href="css/styles.css"
+</head>
+<body class="body_ab">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Looking For Better Weather</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./bc.html">BC</a>
+            </li>
+        </div>
+      </nav>
+        
+      
+    
+    <!--Bootstrap Grid for page -->
+    <div class="container_ab">
+        
+        <div class="row" >
+            <!--column1-->
+            <div class="col-sm" id="col1">
+                <h5>AB PAGE</h5>
+                <form class="form-inline" >
+                    <div class="form-group" id="form1">                  
+                        <input type="text" class="form-control" id="prov" placeholder="Province">
+                    </div>
+                </form>
+                <button type="button" class="btn btn-warning" id="button1" onClick="getJson1()"> Best Weather</button>
+                
+                <!-- high temp card-->
+                <div class="card bg-light mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Today's High</div>
+                    <div class="card-body">
+                        <h6 class="card-title" id="high-temp"></h6>                                        
+                    </div>
+                </div>
+                <div class="card bg-light mb-3" style="max-width: 18rem;">                        
+                    <div class="card-header">Today's Forecast</div>
+                    <div class="card-body">
+                        <h6 class="card-title" id="forecast"></h6>                                        
+                    </div>
+                </div>
+            </div>       
+            <!--column2-->
+            <div class="col-sm" id="col2">
+                
+                <form class="form-inline" id="form2">
+                    <h5>Another City ?</h5>
+                    <button type="button" class="btn btn-warning" id="button2" onClick="clearData()">Clear Forecast </button>
+                </form>
+                    <!-- low temp card-->
+                    <div class="card bg-light mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Today's Low</div>
+                        <div class="card-body">
+                            <h6 class="card-title" id="low-temp"></h6>                                        
+                        </div>
+                    </div>
+                        <!-- humidity card-->
+                    <div class="card bg-light mb-3" style="max-width: 18rem;">                        
+                        <div class="card-header">Today's Humidity</div>
+                        <div class="card-body">
+                            <h6 class="card-title" id="humidity"></h6>                                        
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
