@@ -16,60 +16,44 @@
 <script src="js/main.js" defer></script>
 <link rel="stylesheet" href="css/styles.css"
 </head>
-<body>
-   
-    <h1> Welcome to the Weather app</h1>
+<body class="home">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Looking for Better Weather</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./ab.html">AB</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./bc.html">BC</a>
+        </li>
+    </div>
+  </nav> 
+
+      <header class="banner">
+        <h1 class="header-text">Looking for better weather?</h1>
+    </header>
+ 
     <!--Bootstrap Grid for page -->
-    <div class="container">
+    <div class="container_hm">
         <div class="row" >
             <!--column1-->
-            <div class="col-sm" id="col1">
-                <h5>Which province: AB or BC?</h5>
-                <form class="form-inline" >
-                    <div class="form-group" id="form1">                  
-                        <input type="text" class="form-control" id="prov" placeholder="Province">
-                    </div>
-                </form>
-                <button type="button" class="btn btn-warning" id="button1" onClick="getJson1()"> Best Weather</button>
-                
-                <!-- high temp card-->
-                <div class="card bg-light mb-3" style="max-width: 18rem;">
-                    <div class="card-header">Today's High</div>
-                    <div class="card-body">
-                        <h6 class="card-title" id="high-temp"></h6>                                        
-                    </div>
-                </div>
-                <div class="card bg-light mb-3" style="max-width: 18rem;">                        
-                    <div class="card-header">Today's Forecast</div>
-                    <div class="card-body">
-                        <h6 class="card-title" id="forecast"></h6>                                        
-                    </div>
-                </div>
-            </div>       
+            <div class="col-sm" id="col1_hm">
+                <button type="button" class="btn btn-warning" id="button1" onClick="abRedirect()">Alberta</button>
+            </div>
+
             <!--column2-->
-            <div class="col-sm" id="col2">
-                
-                <form class="form-inline" id="form2">
-                    <h5>Another City ?</h5>
-                    <button type="button" class="btn btn-warning" id="button2" onClick="clearData()">Clear Forecast </button>
-                </form>
-                    <!-- low temp card-->
-                    <div class="card bg-light mb-3" style="max-width: 18rem;">
-                        <div class="card-header">Today's Low</div>
-                        <div class="card-body">
-                            <h6 class="card-title" id="low-temp"></h6>                                        
-                        </div>
-                    </div>
-                        <!-- humidity card-->
-                    <div class="card bg-light mb-3" style="max-width: 18rem;">                        
-                        <div class="card-header">Today's Humidity</div>
-                        <div class="card-body">
-                            <h6 class="card-title" id="humidity"></h6>                                        
-                        </div>
-                    </div>
+            <div class="col-sm" id="col2_hm">              
+              <button type="button" class="btn btn-warning" id="button2" onClick="bcRedirect()">British Columbia</button>                    
             </div>
         </div>
     </div>
-
 </body>
 </html>
