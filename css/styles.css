@@ -1,14 +1,12 @@
 *,*::after,*::before{
     margin: 0;
     padding: 0;
-    box-sizing: inherit;
-    
+    box-sizing: inherit;    
 }
 
 body.home{
     background-image: url(../images/bus.jpg);
-    background-size: cover;
-   
+    background-size: cover;   
 }
 
 .header-text {
@@ -20,13 +18,14 @@ body.home{
     color: white;
 }
 
-/*h1{
+.h3_ab{
     text-align: center;
-    margin-top: 3vh;    
+    margin-top: 15vh;    
     display: block;
     font-weight: 600;
-    color: #0d0d0e
-}*/
+    color: black
+}
+
 body.body_ab{
     background-image: url(../images/LakeLoiuse.jpg);
     background-size: cover;
@@ -40,30 +39,39 @@ body.body_bc{
 
 .container_ab{
     height:100%;
-    margin-top:3vh;
-    justify-content:center;
-    /*background-color:tan*/   
+    margin-top:3vh;   
+    justify-content:center;   
 }
+
 .container_bc{
     margin-top:3vh;
     justify-content:center;
       
 }
 #col1_hm{ 
-    margin-top:2vh;
-  
+    margin-top:2vh; 
 
 }
 #col2_hm{
-    margin-top: 2vh;
- 
+    margin-top: 2vh; 
+}
+
+#col1_ab{
+    margin-top:12vh;
+    margin-left: 25vw;
+    
+}
+
+#col2_ab{
+    margin-top: 1vh;
+    margin-right: 15vw;
 }
 
 #form1{ 
     margin-bottom: 1vh;    
 }
 
-#button1{
+#ab_button{
     margin-left: 78vh;
     width: 110px;
 
@@ -73,6 +81,6 @@ body.body_bc{
     margin-bottom: 11.2vh;
 
 }
-#button2{
+#bc_button{
     margin-left: 3vw;  
 }
