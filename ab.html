@@ -36,50 +36,55 @@
         
       
     
-    <!--Bootstrap Grid for page -->
-    <div class="container_ab">
-        <h3 class="h3_ab">The 4 warmest weather locations in Alberta</h3>
+        <!--Bootstrap Grid for page -->
+        <div class="container_ab">
+        <button type="button" class="btn btn-warning" id="ab_Top4_but" onClick="getTop4('1')">Get the 4 Warmest Locations in Alberta</button>       
+
         <div class="row" >
             <!--column1-->
-            <div class="col-sm" id="col1_ab">               
-             
-                <!--<button type="button" class="btn btn-warning" id="button1" onClick="getJson1()"> Best Weather</button>-->
-                
-                <!-- high temp card-->
+            <div class="col-sm" id="col1_ab">
+                <!-- City1-->             
                 <div class="card bg-light mb-3" style="max-width: 18rem;">
-                    <div class="card-header" id="ab_temp1">Current Temperature in 1</div>
+                    <div class="card-header" id="ab_city1"></div>
                     <div class="card-body">
-                    <h6 class="card-title" id="ab_description1">weather description 1</h6>                                        
+                    <h6 class="card-title" id="ab_current1"></h6> 
+                    <h6 class="card-title" id="ab_description1"></h6>
+                    <p>Current conditions</p>                                            
                     </div>
                 </div>
+                <!-- City3-->
                 <div class="card bg-light mb-3" style="max-width: 18rem;">                        
-                    <div class="card-header" id="ab_temp2">Current Temperature in 2</div>
+                    <div class="card-header" id="ab_city3"></div>
                     <div class="card-body">
-                        <h6 class="card-title" id="ab_description2">weather description 2</h6>                                        
+                    <h6 class="card-title" id="ab_current3"></h6> 
+                    <h6 class="card-title" id="ab_description3"></h6>
+                    <p>Current conditions</p>                                            
                     </div>
                 </div>
             </div>       
             <!--column2-->
-            <div class="col-sm" id="col2_ab">                
-                <form class="form-inline" id="form2">          
-                </form>
+            <div class="col-sm" id="col2_ab">              
                     <!-- low temp card-->
                     <div class="card bg-light mb-3" style="max-width: 18rem;">
-                        <div class="card-header" id="ab_temp3">Current Temperature in 3</div>
+                        <div class="card-header" id="ab_city2"></div>
                         <div class="card-body">
-                            <h6 class="card-title" id="ab_description3">weather description 3</h6>                                        
+                        <h6 class="card-title" id="ab_current2"></h6> 
+                        <h6 class="card-title" id="ab_description2"></h6>
+                        <p>Current conditions</p>                                            
                         </div>
                     </div>
                         <!-- humidity card-->
                     <div class="card bg-light mb-3" style="max-width: 18rem;">                        
-                        <div class="card-header" id="ab_temp4">Current Temperature in </div>
+                        <div class="card-header" id="ab_city4"></div>
                         <div class="card-body">
-                            <h6 class="card-title" id="ab_description4">weather description 4</h6>                                       
+                        <h6 class="card-title" id="ab_current4"></h6> 
+                        <h6 class="card-title" id="ab_description4"></h6>
+                        <p>Current conditions</p>                                            
                         </div>
                     </div>
             </div>
         </div>
     </div>
-    <button type="button" class="btn btn-warning" id="button2" onClick="clearData()">Clear Forecast </button>
+
 </body>
 </html>

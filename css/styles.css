@@ -26,13 +26,18 @@ body.home{
     color: black
 }
 
+p{
+    font-size: 11px;
+    color:rgb(224, 168, 0);
+    
+}
 body.body_ab{
     background-image: url(../images/LakeLoiuse.jpg);
     background-size: cover;
 }
 
 body.body_bc{
-    background-image: url(../images/BC_4.jpg);
+    background-image: url(../images/BC6.jpg);
     background-size: cover;  
 
 }
@@ -44,43 +49,61 @@ body.body_bc{
 }
 
 .container_bc{
-    margin-top:3vh;
-    justify-content:center;
-      
+    height:100%;
+    margin-top:3vh;   
+    justify-content:center;   
 }
 #col1_hm{ 
     margin-top:2vh; 
+}
 
-}
 #col2_hm{
-    margin-top: 2vh; 
-}
+    margin-top: 2vh;
+ }
 
 #col1_ab{
     margin-top:12vh;
-    margin-left: 25vw;
-    
+    margin-left: 25vw;    
 }
 
 #col2_ab{
-    margin-top: 1vh;
-    margin-right: 15vw;
+    margin-top:12vh;
+    margin-right: 15vw; 
 }
 
-#form1{ 
-    margin-bottom: 1vh;    
+#col1_bc{
+    margin-top:12vh;
+    margin-left: 25vw;    
+}
+
+#col2_bc{
+    margin-top:12vh;
+    margin-right: 15vw; 
 }
 
 #ab_button{
     margin-left: 78vh;
     width: 110px;
-
 }
 
-#form2{
-    margin-bottom: 11.2vh;
 
-}
 #bc_button{
     margin-left: 3vw;  
 }
+
+#ab_Top4_but{
+    
+    margin: 9vh auto auto auto;    
+    display: block;   
+    font-size: 20px;    
+    font-weight: bold;    
+}
+#bc_Top4_but{
+    
+    margin: 9vh auto auto auto;    
+    display: block;   
+    font-size: 20px;    
+    font-weight: bold;    
+}
+
+

@@ -74,3 +74,21 @@ var values = [
    {   {key1: 12, key2: 112, key3: 1112},  
        {key1: 31, key2: 331, key3: 3331},   
        {key1: 64, key2: 65, key3: 66}        }
+
+                 // let low = rawData.main.temp_min 
+                // let low_text = document.querySelector('#low-temp')
+                // let low_f =  `${low} F`
+                // low_text.innerHTML= low_f
+        
+                // let forecast = rawData.weather[0].main
+                // let forecast_text = document.querySelector('#forecast')        
+                // forecast_text.innerHTML= forecast
+        
+                // let humidity = rawData.main.temp_min 
+                // let humidity_text = document.querySelector('#humidity')
+                // let humidity_per =  `${humidity} %`        
+                // humidity_text.innerHTML= humidity_per     
+
+{city: "Banff", current: -10.32, description: "rain"},
+{city: "Calgary", current: 10.32, description: "sunny"},
+{city: "Edmonton", current: 20.69, description: "cloudy"}];
