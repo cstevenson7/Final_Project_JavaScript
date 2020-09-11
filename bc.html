@@ -29,61 +29,59 @@
               <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./ab.html">BC</a>
+              <a class="nav-link" href="./ab.html">AB</a>
             </li>
         </div>
       </nav> 
  
-    <!--Bootstrap Grid for page -->
-    <!--Bootstrap Grid for page -->
-    <div class="container_bc">
-        <div class="row" >
-            <!--column1-->
-            <div class="col-sm" id="col1">
-                <h5>BC PAGE</h5>
-                <form class="form-inline" >
-                    <div class="form-group" id="form1">                  
-                        <input type="text" class="form-control" id="prov" placeholder="Province">
-                    </div>
-                </form>
-                <button type="button" class="btn btn-warning" id="button1" onClick="getJson1()"> Best Weather</button>
-                
-                <!-- high temp card-->
-                <div class="card bg-light mb-3" style="max-width: 18rem;">
-                    <div class="card-header">Today's High</div>
-                    <div class="card-body">
-                        <h6 class="card-title" id="high-temp"></h6>                                        
-                    </div>
-                </div>
-                <div class="card bg-light mb-3" style="max-width: 18rem;">                        
-                    <div class="card-header">Today's Forecast</div>
-                    <div class="card-body">
-                        <h6 class="card-title" id="forecast"></h6>                                        
-                    </div>
-                </div>
-            </div>       
-            <!--column2-->
-            <div class="col-sm" id="col2">
-                
-                <form class="form-inline" id="form2">
-                    <h5>Another City ?</h5>
-                    <button type="button" class="btn btn-warning" id="button2" onClick="clearData()">Clear Forecast </button>
-                </form>
-                    <!-- low temp card-->
+        <!--Bootstrap Grid for page -->
+        <div class="container_bc">
+            <button type="button" class="btn btn-warning" id="bc_Top4_but"   onClick="getTop4('2')">Get the 4 Warmest Locations in BC</button>           
+    
+            <div class="row" >
+                <!--column1-->
+                <div class="col-sm" id="col1_bc"> 
+                    <!-- City1-->              
                     <div class="card bg-light mb-3" style="max-width: 18rem;">
-                        <div class="card-header">Today's Low</div>
+                        <div class="card-header" id="bc_city1"></div>
                         <div class="card-body">
-                            <h6 class="card-title" id="low-temp"></h6>                                        
+                        <h6 class="card-title" id="bc_current1"></h6> 
+                        <h6 class="card-title" id="bc_description1"></h6>
+                        <p>Current conditions</p>                                           
                         </div>
                     </div>
-                        <!-- humidity card-->
+                    <!-- City3-->
                     <div class="card bg-light mb-3" style="max-width: 18rem;">                        
-                        <div class="card-header">Today's Humidity</div>
+                        <div class="card-header" id="bc_city3"></div>
                         <div class="card-body">
-                            <h6 class="card-title" id="humidity"></h6>                                        
+                        <h6 class="card-title" id="bc_current3"></h6> 
+                        <h6 class="card-title" id="bc_description3"></h6>
+                        <p>Current conditions</p>                                            
                         </div>
                     </div>
-            </div>
+                </div>
+
+                <!--column2-->
+                <div class="col-sm" id="col2_bc">           
+                        <!-- City2-->
+                        <div class="card bg-light mb-3" style="max-width: 18rem;">
+                            <div class="card-header" id="bc_city2"></div>
+                            <div class="card-body">
+                            <h6 class="card-title" id="bc_current2"></h6> 
+                            <h6 class="card-title" id="bc_description2"></h6>
+                            <p>Current conditions</p>                                            
+                            </div>
+                        </div>
+                            <!-- City4-->
+                        <div class="card bg-light mb-3" style="max-width: 18rem;">                        
+                            <div class="card-header" id="bc_city4"></div>
+                            <div class="card-body">
+                            <h6 class="card-title" id="bc_current4"></h6> 
+                            <h6 class="card-title" id="bc_description4"></h6>
+                            <p>Current conditions</p>                                            
+                            </div>
+                        </div>
+                </div>
         </div>
     </div>
 
