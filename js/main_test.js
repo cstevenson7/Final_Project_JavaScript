@@ -92,3 +92,108 @@ var values = [
 {city: "Banff", current: -10.32, description: "rain"},
 {city: "Calgary", current: 10.32, description: "sunny"},
 {city: "Edmonton", current: 20.69, description: "cloudy"}];
+
+       /* Set the size of the div element that contains the map */
+      /*#map {
+        height: 80vh;  /* The height is 400 pixels */
+        width: 80%;  /* The width is the width of the web page */
+       }*/
+
+
+https://stackoverflow.com/questions/23125462/multiple-marker-example-using-csv
+csv file will be like 
+
+1,22.582365,79.848633
+2,29.862893,77.8973
+3,23.01034,72.517397
+4,29.134187,79.125107
+
+file must have csv extention , having no spaces
+
+       <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+       <html xmlns="http://www.w3.org/1999/xhtml">
+       <head>
+       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+       <title>Multiple Marker</title>
+       <script src="http://code.jquery.com/jquery-latest.min.js" type="application/javascript"></script>
+       // change key of google map in key parameter
+       <script src="http://maps.googleapis.com/maps/api/js?key=key&sensor=false"></script>
+       <script>
+           $(document).ready(function(){
+               var markers = []; // define global array in script tag so you can use it in whole page    
+               var myCenter=new google.maps.LatLng(22.582365,79.848633);
+               var mapProp = {
+                       center:myCenter, 
+                       zoom:6,
+                       minZoom:6,          
+                       mapTypeId : google.maps.MapTypeId.ROADMAP,
+                       mapTypeControl: true           
+                   };
+               //google map object       
+                var map = new google.maps.Map(document.getElementById("gMap"),mapProp); 
+
+                 //change event of input tag where type=file and  id=filename 
+                 $("#filename").change(function(e) {
+
+                    var ext = $("input#filename").val().split(".").pop().toLowerCase();
+
+                    if($.inArray(ext, ["csv"]) == -1) {
+                           alert('Upload CSV');
+                           return false;
+                     }
+
+                    if (e.target.files != undefined) {
+
+                           var reader = new FileReader();
+                           reader.onload = function(e) {
+
+                                     var csvval=e.target.result.split("\n");
+                                     var csvvalue;                                          
+
+                                     for(var i = 0;i < csvval.length;i++)
+                                     {
+                                             markers[i] = []; 
+                                             csvvalue = csvval[i].split(",");
+                                             markers[i][0] = csvvalue[0]; //id
+                                             var lat = csvvalue[1]; //latitude
+                                             var lng = csvvalue[2]; //longitude
+                                             markers[i][1] = new google.maps.Marker({
+                                                  position: new google.maps.LatLng(lat,lng),
+                                                  map: map                  
+                                             });
+                                      }
+
+                            };
+                            reader.readAsText(e.target.files.item(0));
+                      }
+
+                    return false;
+
+                   });
+           });
+       </script>
+       </head>
+
+       <body>
+           <div style="width:1000px;height:600px;" id="gMap">
+           </div>
+           <input type="file" id="filename" name="filename"/>
+       </body>
+       </html>
+
+// This example adds a marker to indicate the position of Bondi Beach in Sydney,
+// Australia.
+//https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png
+function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 4,
+      center: {lat: -33, lng: 151}
+    });
+  
+    var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+    var beachMarker = new google.maps.Marker({
+      position: {lat: -33.890, lng: 151.274},
+      map: map,
+      icon: image
+    });
+  }

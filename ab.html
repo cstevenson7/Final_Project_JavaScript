@@ -31,6 +31,9 @@
             <li class="nav-item">
               <a class="nav-link" href="./bc.html">BC</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./map.html">Map</a>
+            </li>
         </div>
       </nav>
         
@@ -38,7 +41,8 @@
     
         <!--Bootstrap Grid for page -->
         <div class="container_ab">
-        <button type="button" class="btn btn-warning" id="ab_Top4_but" onClick="getTop4('1')">Get the 4 Warmest Locations in Alberta</button>       
+        <button type="button" class="btn btn-warning" id="ab_Top4_but" onClick="getTop4('1')">Get the 4 Warmest Locations in Alberta</button> 
+  
 
         <div class="row" >
             <!--column1-->
@@ -85,6 +89,85 @@
             </div>
         </div>
     </div>
+
+     <!--The div element for the map -->
+     <div id="map"></div>
+     <script>
+ 
+         var locations= [
+             ['Calgary',51.05,-114.09],
+             ['Edmonton',53.55,-113.49],
+             ['Banff',51.18,-115.57],
+             ['Nordegg',52.47,-116.08],
+             ['Jasper',52.57,-118.08],
+             ['Drumheller',51.46,-112.71],
+             ['Lethbridge',49.70,-112.85],
+             ['Peace River',56.23,-117.33],
+             ['Grande Prairie',55.17,-118.79],
+             ['Athabasca',54.72, 113.29],
+             ['St Paul',53.99, 111.30],
+             ['Radium',50.62,-116.07],
+             ['Cranbrook',49.51,-115.77],
+             ['Fernie',49.50,-115.06],
+             ['Kamlooops',50.67,-120.33],
+             ['Kelowna',48.89, -119.50],
+             ['Penticton',49.50,-119.59],
+             ['Osoyoos', 49.03,-119.47],
+             ['Castlegar',49.32,-117.66],
+             ['Revelstoke',51.00, -118.20],
+             ['Valemount',52.83, -119.26],
+             ['Golden', 51.30,-116.96],
+             ['Prince Rupert', 54.32, -130.32],
+             ['Nelson', 49.49,-117.29],
+             ['Vancouver',49.28,-123.12],
+             ['Victoria', 48.43, 123.37],
+             ['Prince George', 53.92,-122.75]
+         ];
+         // Initialize and add the map
+         function initMap() {
+             // The location of Jasper
+             var ab_bc = {lat: 52.57, lng: -118.08};
+             // The map, centered at Uluru -  creates a new Google maps object.
+             //The center property tells the API where to center the map. The map coordinates are set in the order: latitude, longitude.
+             var map = new google.maps.Map(
+                 document.getElementById('map'), {zoom: 6.0, center: ab_bc});
+             // The marker, positioned at jasper
+             //var marker = new google.maps.Marker({position: ab_bc, map: map});
+ 
+             var infowindow = new google.maps.InfoWindow();
+             var marker, i;
+ 
+             for (i = 0; i < locations.length; i++) {  
+ 
+                 var marker = new google.maps.Marker({
+                     position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                     icon: {
+                         path: google.maps.SymbolPath.CIRCLE,
+                         scale: 3
+                         },
+                     map: map
+                     });
+ 
+ 
+                 google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                     return function() {
+                     infowindow.setContent(locations[i][0]);
+                     infowindow.open(map, marker);
+                     }
+                 })(marker, i));
+             }
+         }
+ 
+         
+     </script>
+         <!--Load the API from the specified URL
+         * The async attribute allows the browser to render the page while the API loads
+         * The key parameter will contain your own API key (which is not needed for this tutorial)
+         * The callback parameter executes the initMap() function
+         -->
+         <script defer
+         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARZwui8U4TYUvdBPwTVKwCr-LlSmFmKsI&callback=initMap">
+     </script>
 
 </body>
 </html>
