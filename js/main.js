@@ -1,17 +1,17 @@
 //https://samples.openweathermap.org/data/2.5/weather?lat=51&lon=-114&appid=API_KEY_HERE
 //           api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={your api key}
 let ab_map = new Map(Object.entries({
-    'Calgary':[51.05,-114.09],
-    'Edmonton':[53.55,-113.49],
-    'Banff':[51.18,-115.57],
-    'Nordegg':[52.47,-116.08],
-    'Jasper':[52.57,-118.08],
-    'Drumheller':[51.46,-112.71],
-    'Lethbridge':[49.70,-112.85],
-    'Peace River':[56.23,-117.33],
-    'Grande Prairie':[55.17,-118.79],
-    'Athabasca':[54.72, 113.29],
-    'St Paul':[53.99, 111.30]
+    'Calgary':[51.05,-114.09,'https://weather.gc.ca/city/pages/ab-52_metric_e.html'],
+    'Edmonton':[53.55,-113.49,'https://weather.gc.ca/city/pages/ab-50_metric_e.html'],
+    'Banff':[51.18,-115.57,'https://weather.gc.ca/city/pages/ab-49_metric_e.html'],
+    'Nordegg':[52.47,-116.08,'https://weather.gc.ca/city/pages/ab-38_metric_e.html'],
+    'Jasper':[52.57,-118.08,'https://weather.gc.ca/city/pages/ab-70_metric_e.html'],
+    'Drumheller':[51.46,-112.71,'https://weather.gc.ca/city/pages/ab-62_metric_e.html'],
+    'Lethbridge':[49.70,-112.85,'https://weather.gc.ca/city/pages/ab-30_metric_e.html'],
+    'Peace River':[56.23,-117.33,'https://weather.gc.ca/city/pages/ab-25_metric_e.html'],
+    'Grande Prairie':[55.17,-118.79,'https://weather.gc.ca/city/pages/ab-31_metric_e.html'],
+    'Athabasca':[54.72, 113.29,'https://weather.gc.ca/city/pages/ab-10_metric_e.html'],
+    'Cold Lake':[54.45, 110.17,'https://weather.gc.ca/city/pages/ab-23_metric_e.html']
 }));
 
 let bc_map = new Map(Object.entries({
@@ -36,8 +36,7 @@ let bc_map = new Map(Object.entries({
 
 function abRedirect(){
     window.location.href= 'ab.html';
-    //TODO WHY WON'T THIS WORK
-    //getTop4('ab')
+    // getTop4('ab')
 }
 
 function bcRedirect(){
@@ -45,26 +44,26 @@ function bcRedirect(){
 }
 
 function getTop4(intValue){
-    console.log (intValue)
-    // From OnClick events - 1 is Alberta, 1 is BC
+    // console.log (intValue)
+    // // From OnClick events - 1 is Alberta, 1 is BC
     if(intValue === '1'|| intValue === 1){
         map_object = ab_map;
     }else{
         map_object = bc_map
     }
     //let map_object = ab_map;
-    let values1 = []
-   
+    let values1 = []  
 
-    for(let[city,coordinates] of map_object.entries()){
-            fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${coordinates[0]}&lon=${coordinates[1]}&units=metric&appid=API KEY HERE`)
+    for(let[city,coordinates,] of map_object.entries()){
+            fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${coordinates[0]}&lon=${coordinates[1]}&units=metric&appid=72fed5dd48ff06dcf670a1689cf0dc55`)
             //callback function with promise
             .then(response => response.json())
             .then(rawData => {                                      
                 //pulling the current temp from the json file
                 let current = rawData.main.temp            
                 let description = rawData.weather[0].description
-                //Getting the city from my Map               
+                //Getting the city from my Map
+                         
                 values1.push([city,current,description])
                 //need to leave all of this inside the promise
                 //or the values list is empty
@@ -77,22 +76,25 @@ function getTop4(intValue){
                       }
                     arrayOfObjects.push(obj);                                       
                 }
-                //console.log('after for', arrayOfObjects) 
+       
                 sortedTemps= arrayOfObjects.sort((a, b) => parseFloat(b.current) - parseFloat(a.current));
                 console.log('Sorted temps', sortedTemps)
                 let ab_city = [];
                 let ab_current = [];
-                let ab_description= [];
+                let ab_description= [];              
+                //let ab_top4 = [];
+
                 for (let i = 0; i < 4; i++){                        
-                    ab_city[i] = sortedTemps[i].city
+                    ab_city[i] = sortedTemps[i].city                    
                     ab_current[i] = sortedTemps[i].current
-                    ab_description[i] = sortedTemps[i].description
+                    ab_description[i] = sortedTemps[i].description                   
+                    //ab_top4.push([ab_city[i]], [ab_current[i]], [ab_description[i]])
 
                     if(intValue === '1'|| intValue === 1){
                         if(i == 0){
                             let city = sortedTemps[i].city
                             let city_txt = document.querySelector('#ab_city1')        
-                            city_txt.innerHTML= city
+                            city_txt.innerHTML= city                        
                 
                             let current = sortedTemps[i].current
                             let current_txt = document.querySelector('#ab_current1')
@@ -202,8 +204,9 @@ function getTop4(intValue){
                             description_txt.innerHTML= description  
                         }
                     }
-                }     
-                        
+                    
+                }
+              
              })          
                       
     }  
@@ -256,10 +259,3 @@ function displayTop4(city, current, description,i){
 
 }
 
-function clearData(){
-    document.getElementById("city").value = "";
-    document.getElementById("high-temp").innerHTML = "";
-    document.getElementById("low-temp").innerHTML = "";
-    document.getElementById("forecast").innerHTML = "";
-    document.getElementById("humidity").innerHTML = "";  
-}
