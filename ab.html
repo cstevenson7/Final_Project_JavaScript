@@ -35,96 +35,103 @@
               <a class="nav-link" href="./map.html">Map</a>
             </li>
         </div>
-      </nav>
-        
+      </nav>       
       
     
         <!--Bootstrap Grid for page -->
         <div class="container_ab">
-        <button type="button" class="btn btn-warning" id="ab_Top4_but" onClick="getTop4('1')">Get the 4 Warmest Locations in Alberta</button> 
-  
+        <button type="button" class="btn btn-warning" id="ab_Top4_but" onClick="getTop4('1')">Get the 4 Warmest Locations in Alberta</button>  
 
         <div class="row" >
             <!--column1-->
             <div class="col-sm" id="col1_ab">
                 <!-- City1-->             
                 <div class="card bg-light mb-3" style="max-width: 18rem;">
-                    <div class="card-header" id="ab_city1"></div>
+                    <div class="card-header" id="ab_city1"><font color= "gray">Warmest City</font></div>
                     <div class="card-body">
-                    <h6 class="card-title" id="ab_current1"></h6> 
-                    <h6 class="card-title" id="ab_description1"></h6>
+                    <h6 class="card-title" id="ab_current1"><font color= "gray">Current Temperature</font></h6> 
+                    <h6 class="card-title" id="ab_description1"><font color= "gray">Current Conditions</font></h6>
                     <p>Current conditions</p>                                            
                     </div>
                 </div>
                 <!-- City3-->
-                <div class="card bg-light mb-3" style="max-width: 18rem;">                        
-                    <div class="card-header" id="ab_city3"></div>
+                <div class="card bg-light mb-3" style="max-width: 18rem;">
+                    <div class="card-header" id="ab_city3"><font color= "gray">Third Warmest City</font></div>
                     <div class="card-body">
-                    <h6 class="card-title" id="ab_current3"></h6> 
-                    <h6 class="card-title" id="ab_description3"></h6>
+                    <h6 class="card-title" id="ab_current3"><font color= "gray">Current Temperature</font></h6> 
+                    <h6 class="card-title" id="ab_description3"><font color= "gray">Current Conditions</font></h6>
                     <p>Current conditions</p>                                            
                     </div>
                 </div>
             </div>       
             <!--column2-->
             <div class="col-sm" id="col2_ab">              
-                    <!-- low temp card-->
+                    <!-- City2-->
                     <div class="card bg-light mb-3" style="max-width: 18rem;">
-                        <div class="card-header" id="ab_city2"></div>
+                        <div class="card-header" id="ab_city2"><font color= "gray">Second Warmest City</font></div>
                         <div class="card-body">
-                        <h6 class="card-title" id="ab_current2"></h6> 
-                        <h6 class="card-title" id="ab_description2"></h6>
+                        <h6 class="card-title" id="ab_current2"><font color= "gray">Current Temperature</font></h6> 
+                        <h6 class="card-title" id="ab_description2"><font color= "gray">Current Conditions</font></h6>
                         <p>Current conditions</p>                                            
                         </div>
                     </div>
-                        <!-- humidity card-->
-                    <div class="card bg-light mb-3" style="max-width: 18rem;">                        
-                        <div class="card-header" id="ab_city4"></div>
-                        <div class="card-body">
-                        <h6 class="card-title" id="ab_current4"></h6> 
-                        <h6 class="card-title" id="ab_description4"></h6>
-                        <p>Current conditions</p>                                            
+                        <!-- City 4-->
+                        <div class="card bg-light mb-3" style="max-width: 18rem;">
+                            <div class="card-header" id="ab_city4"><font color= "gray">Fourth Warmest City</font></div>
+                            <div class="card-body">
+                            <h6 class="card-title" id="ab_current4"><font color= "gray">Current Temperature</font></h6> 
+                            <h6 class="card-title" id="ab_description4"><font color= "gray">Current Conditions</font></h6>
+                            <p>Current conditions</p>                                            
+                            </div>
                         </div>
-                    </div>
-            </div>
         </div>
     </div>
-
-     <!--The div element for the map -->
+         <!--The div element for the map -->
      <div id="map"></div>
-     <script>
- 
+     
+
+     <script>        
+      
          var locations= [
-             ['Calgary',51.05,-114.09],
-             ['Edmonton',53.55,-113.49],
-             ['Banff',51.18,-115.57],
-             ['Nordegg',52.47,-116.08],
-             ['Jasper',52.57,-118.08],
-             ['Drumheller',51.46,-112.71],
-             ['Lethbridge',49.70,-112.85],
-             ['Peace River',56.23,-117.33],
-             ['Grande Prairie',55.17,-118.79],
-             ['Athabasca',54.72, 113.29],
-             ['St Paul',53.99, 111.30],
-             ['Radium',50.62,-116.07],
-             ['Cranbrook',49.51,-115.77],
-             ['Fernie',49.50,-115.06],
-             ['Kamlooops',50.67,-120.33],
-             ['Kelowna',48.89, -119.50],
-             ['Penticton',49.50,-119.59],
-             ['Osoyoos', 49.03,-119.47],
-             ['Castlegar',49.32,-117.66],
-             ['Revelstoke',51.00, -118.20],
-             ['Valemount',52.83, -119.26],
-             ['Golden', 51.30,-116.96],
-             ['Prince Rupert', 54.32, -130.32],
-             ['Nelson', 49.49,-117.29],
-             ['Vancouver',49.28,-123.12],
-             ['Victoria', 48.43, 123.37],
-             ['Prince George', 53.92,-122.75]
+             ['Calgary',51.05,-114.09,'https://weather.gc.ca/city/pages/ab-52_metric_e.html'],
+             ['Edmonton',53.55,-113.49,'https://weather.gc.ca/city/pages/ab-50_metric_e.html'],
+             ['Banff',51.18,-115.57,'https://weather.gc.ca/city/pages/ab-49_metric_e.html'],
+             ['Nordegg',52.47,-116.08,'https://weather.gc.ca/city/pages/ab-38_metric_e.html'],
+             ['Jasper',52.57,-118.08,'https://weather.gc.ca/city/pages/ab-70_metric_e.html'],
+             ['Drumheller',51.46,-112.71,'https://weather.gc.ca/city/pages/ab-62_metric_e.html'],
+             ['Lethbridge',49.70,-112.85,'https://weather.gc.ca/city/pages/ab-30_metric_e.html'],
+             ['Peace River',56.23,-117.33,',https://weather.gc.ca/city/pages/ab-25_metric_e.html'],
+             ['Grande Prairie',55.17,-118.79,'https://weather.gc.ca/city/pages/ab-31_metric_e.html'],
+             ['Athabasca',54.72, 113.29,'https://weather.gc.ca/city/pages/ab-10_metric_e.html'],
+             ['Cold Lake',54.45, 110.17,'https://weather.gc.ca/city/pages/ab-23_metric_e.html'],
+             ['Invermere',50.51,-116.03,'https://weather.gc.ca/city/pages/bc-72_metric_e.html'],
+             ['Cranbrook',49.51,-115.77,'https://weather.gc.ca/city/pages/bc-77_metric_e.html'],
+             ['Sparwood',49.73,-114.88,'https://weather.gc.ca/city/pages/bc-52_metric_e.html'],
+             ['Kamlooops',50.67,-120.33,'https://weather.gc.ca/city/pages/bc-45_metric_e.html'],
+             ['Kelowna',48.89, -119.50,'https://weather.gc.ca/city/pages/bc-48_metric_e.html'],
+             ['Penticton',49.50,-119.59,'https://weather.gc.ca/city/pages/bc-84_metric_e.html'],
+             ['Osoyoos', 49.03,-119.47,'https://weather.gc.ca/city/pages/bc-69_metric_e.html'],
+             ['Castlegar',49.32,-117.66,'https://weather.gc.ca/city/pages/bc-21_metric_e.html '],
+             ['Revelstoke',51.00, -118.20,'https://weather.gc.ca/city/pages/bc-65_metric_e.html'],
+             ['Valemount',52.83, -119.26,'https://weather.gc.ca/city/pages/bc-13_metric_e.html'],
+             ['Golden', 51.30,-116.96,'https://weather.gc.ca/city/pages/bc-34_metric_e.html'],
+             ['Prince Rupert', 54.32, -130.32,'https://weather.gc.ca/city/pages/bc-57_metric_e.html'],
+             ['Nelson', 49.49,-117.29,'https://weather.gc.ca/city/pages/bc-37_metric_e.html'],
+             ['Vancouver',49.28,-123.12,'https://weather.gc.ca/city/pages/bc-74_metric_e.html'],
+             ['Victoria', 48.43, 123.37,'https://weather.gc.ca/city/pages/bc-74_metric_e.html'],
+             ['Prince George', 53.92,-122.75,'https://weather.gc.ca/city/pages/bc-79_metric_e.html']
          ];
-         // Initialize and add the map
+
+         
+        console.log(document.querySelector('#ab_current1').value);
+
+
+         //Initialize and add the map
          function initMap() {
+            //  if(document.readyState == 'complete'){
+            //     console.log(document.querySelector('#ab_current1').value)
+            console.log(document.querySelector('#ab_current1').value)
+        
              // The location of Jasper
              var ab_bc = {lat: 52.57, lng: -118.08};
              // The map, centered at Uluru -  creates a new Google maps object.
@@ -137,37 +144,38 @@
              var infowindow = new google.maps.InfoWindow();
              var marker, i;
  
-             for (i = 0; i < locations.length; i++) {  
- 
-                 var marker = new google.maps.Marker({
-                     position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-                     icon: {
-                         path: google.maps.SymbolPath.CIRCLE,
-                         scale: 3
-                         },
-                     map: map
-                     });
- 
- 
-                 google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                     return function() {
-                     infowindow.setContent(locations[i][0]);
-                     infowindow.open(map, marker);
-                     }
-                 })(marker, i));
+             for (i = 0; i < locations.length; i++) {
+                 //for(let j = 1; i < 5; i++){ 
+                    //if (ab_city[j] == locationsi[0]){
+                        var marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+
+                            map: map
+                            }); 
+        
+                        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                            return function() {
+
+                            infowindow.setContent(`<p> ${locations[i][0]} <br> Forcast: <a href="${locations[i][3]}" target="_blank">${locations[i][3]}</a></p>`);                            
+                        
+                            infowindow.open(map, marker);
+                            }
+                        })(marker, i));
+                   // }
+                  //}
              }
          }
- 
+  
+        
+        
          
-     </script>
-         <!--Load the API from the specified URL
-         * The async attribute allows the browser to render the page while the API loads
-         * The key parameter will contain your own API key (which is not needed for this tutorial)
-         * The callback parameter executes the initMap() function
-         -->
-         <script defer
-         src="https://maps.googleapis.com/maps/api/js?key=API_KE HERE&callback=initMap">
-     </script>
+    </script>  
+            
+            
+    <script defer
+         src="https://maps.googleapis.com/maps/api/js?key=API KEY HERE&callback=initMap">
+    </script>
+  
 
 </body>
 </html>
