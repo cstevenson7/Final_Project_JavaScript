@@ -15,3 +15,4 @@ var infoWindow = new google.maps.InfoWindow({
 
 
                             infowindow.setContent(`<p> ${locations[i][0]} <br> Forcast: <a href="${locations[i][3]}" target="_blank">${locations[i][3]}</a></p>`);
+							

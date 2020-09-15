@@ -55,7 +55,7 @@ function getTop4(intValue){
     let values1 = []  
 
     for(let[city,coordinates,] of map_object.entries()){
-            fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${coordinates[0]}&lon=${coordinates[1]}&units=metric&appid=72fed5dd48ff06dcf670a1689cf0dc55`)
+            fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${coordinates[0]}&lon=${coordinates[1]}&units=metric&appid=API KEY HERE`)
             //callback function with promise
             .then(response => response.json())
             .then(rawData => {                                      
@@ -213,49 +213,4 @@ function getTop4(intValue){
 
  }
 
-
-
-
-                                
-
-
-function displayTop4(city, current, description,i){
-        if(i == 0){
-            //pulling the daily high from the json file
-            //let high = rawData.main.temp_max
-            //next 2 lines adding the daily high to the html to be
-            //displayed in the element with the #high-temp id
-            let city = document.querySelector('#ab_city1')
-            //let high_f =  `${high} F`
-            city.innerHTML= city
-
-            //let low = rawData.main.temp_min 
-            let current = document.querySelector('#ab_current1')
-            let current_c =  `${current} C`
-            current_c.innerHTML= current_c
-
-            //let forecast = rawData.weather[0].main
-            let description = document.querySelector('#ab_description1')        
-            description.innerHTML= description
-
-            // let humidity = rawData.main.temp_min 
-            // let humidity_text = document.querySelector('#humidity')
-            // let humidity_per =  `${humidity} %`        
-            // humidity_text.innerHTML= humidity_per  
-        }else if(i==1){
-            let city = document.querySelector('#ab_city2')
-            //let high_f =  `${high} F`
-            city.innerHTML= city
-
-            //let low = rawData.main.temp_min 
-            let current = document.querySelector('#ab_current2')
-            let current_c =  `${current} C`
-            current_c.innerHTML= current_c
-
-            //let forecast = rawData.weather[0].main
-            let description = document.querySelector('#ab_description2')        
-            description.innerHTML= description
-        }
-
-}
 
