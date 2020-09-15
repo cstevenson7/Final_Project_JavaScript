@@ -1,17 +1,16 @@
-//https://samples.openweathermap.org/data/2.5/weather?lat=51&lon=-114&appid=API_KEY_HERE
-//           api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={your api key}
+
 let ab_map = new Map(Object.entries({
-    'Calgary':[51.05,-114.09,'https://weather.gc.ca/city/pages/ab-52_metric_e.html'],
-    'Edmonton':[53.55,-113.49,'https://weather.gc.ca/city/pages/ab-50_metric_e.html'],
-    'Banff':[51.18,-115.57,'https://weather.gc.ca/city/pages/ab-49_metric_e.html'],
-    'Nordegg':[52.47,-116.08,'https://weather.gc.ca/city/pages/ab-38_metric_e.html'],
-    'Jasper':[52.57,-118.08,'https://weather.gc.ca/city/pages/ab-70_metric_e.html'],
-    'Drumheller':[51.46,-112.71,'https://weather.gc.ca/city/pages/ab-62_metric_e.html'],
-    'Lethbridge':[49.70,-112.85,'https://weather.gc.ca/city/pages/ab-30_metric_e.html'],
-    'Peace River':[56.23,-117.33,'https://weather.gc.ca/city/pages/ab-25_metric_e.html'],
-    'Grande Prairie':[55.17,-118.79,'https://weather.gc.ca/city/pages/ab-31_metric_e.html'],
-    'Athabasca':[54.72, 113.29,'https://weather.gc.ca/city/pages/ab-10_metric_e.html'],
-    'Cold Lake':[54.45, 110.17,'https://weather.gc.ca/city/pages/ab-23_metric_e.html']
+    'Calgary':[51.05,-114.09],
+    'Edmonton':[53.55,-113.49],
+    'Banff':[51.18,-115.57],
+    'Nordegg':[52.47,-116.08],
+    'Jasper':[52.57,-118.08],
+    'Drumheller':[51.46,-112.71],
+    'Lethbridge':[49.70,-112.85],
+    'Peace River':[56.23,-117.33],
+    'Grande Prairie':[55.17,-118.79],
+    'Athabasca':[54.72, 113.29],
+    'Cold Lake':[54.45, 110.17]
 }));
 
 let bc_map = new Map(Object.entries({
@@ -19,11 +18,10 @@ let bc_map = new Map(Object.entries({
     'Cranbrook':[49.51,-115.77],
     'Fernie':[49.50,-115.06],
     'Kamlooops':[50.67,-120.33],
-    'Kelowna':[48.89, -119.50],
+    'Kelowna':[49.89, -119.50],
     'Penticton':[49.50,-119.59],
     'Osoyoos': [49.03,-119.47],
-    'Castlegar':[49.32,-117.66],
-    'Revelstoke':[51.00, -118.20],
+    'Revelstoke':[51.00, -118.20], 
     'Valemount':[52.83, -119.26],
     'Golden': [51.30,-116.96],
     'Prince Rupert': [54.32, -130.32],
@@ -36,37 +34,36 @@ let bc_map = new Map(Object.entries({
 
 function abRedirect(){
     window.location.href= 'ab.html';
-    // getTop4('ab')
 }
 
 function bcRedirect(){
-    window.location.href= 'bc.html';
+    window.location.href= 'bc.html'; 
 }
 
 function getTop4(intValue){
-    // console.log (intValue)
-    // // From OnClick events - 1 is Alberta, 1 is BC
+    // // From OnClick events - 1 is Alberta, 2 is BC
     if(intValue === '1'|| intValue === 1){
         map_object = ab_map;
     }else{
         map_object = bc_map
     }
-    //let map_object = ab_map;
+  
     let values1 = []  
 
     for(let[city,coordinates,] of map_object.entries()){
-            fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${coordinates[0]}&lon=${coordinates[1]}&units=metric&appid=API KEY HERE`)
+            fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${coordinates[0]}&lon=${coordinates[1]}&units=metric&appid=72fed5dd48ff06dcf670a1689cf0dc55`)
             //callback function with promise
+            //try goes here
             .then(response => response.json())
             .then(rawData => {                                      
-                //pulling the current temp from the json file
+                //pulling the current temp from the API file
                 let current = rawData.main.temp            
                 let description = rawData.weather[0].description
-                //Getting the city from my Map
-                         
+                //Getting the city from my Map                         
                 values1.push([city,current,description])
                 //need to leave all of this inside the promise
                 //or the values list is empty
+                //Create a array of objects with these attributes
                 let keys = ['city','current','description'];
                 let arrayOfObjects = [];            
                 for(let i=0; i<values1.length; i++){        
@@ -76,20 +73,19 @@ function getTop4(intValue){
                       }
                     arrayOfObjects.push(obj);                                       
                 }
-       
+                //sort the array of objects by descending order to get the 4 warmest temps
                 sortedTemps= arrayOfObjects.sort((a, b) => parseFloat(b.current) - parseFloat(a.current));
                 console.log('Sorted temps', sortedTemps)
+                //creates lists so we can dynamically change 
+                //variable names in for loop
                 let ab_city = [];
                 let ab_current = [];
-                let ab_description= [];              
-                //let ab_top4 = [];
-
+                let ab_description= [];  
                 for (let i = 0; i < 4; i++){                        
                     ab_city[i] = sortedTemps[i].city                    
                     ab_current[i] = sortedTemps[i].current
                     ab_description[i] = sortedTemps[i].description                   
-                    //ab_top4.push([ab_city[i]], [ab_current[i]], [ab_description[i]])
-
+                    //intValue 1 = ab,  2 = bc
                     if(intValue === '1'|| intValue === 1){
                         if(i == 0){
                             let city = sortedTemps[i].city
@@ -146,6 +142,7 @@ function getTop4(intValue){
                             let description_txt = document.querySelector('#ab_description4')        
                             description_txt.innerHTML= description  
                         }
+ 
                     }else{
                         //Passing BC Values to bc.html
                         if(i == 0){
@@ -203,14 +200,89 @@ function getTop4(intValue){
                             let description_txt = document.querySelector('#bc_description4')        
                             description_txt.innerHTML= description  
                         }
-                    }
-                    
-                }
-              
-             })          
-                      
-    }  
+                    }                    
+                }              
+             })       
+   
+    }
 
  }
+
+ // Get Marker Data From Loaded HTML
+ function getABMarkers(){
+    top4 = []
+    let city1 = document.querySelector('#ab_city1').innerText
+    top4.push(city1)
+    let city2 = document.querySelector('#ab_city2').innerText
+    top4.push(city2)
+    let city3 = document.querySelector('#ab_city3').innerText
+    top4.push(city3)
+    let city4 = document.querySelector('#ab_city4').innerText
+    top4.push(city4)
+    //console.log(top4)
+    let prov = 'ab'
+    initMap(top4, prov)
+ }
+
+  // Get Marker Data From Loaded HTML
+  function getBCMarkers(){
+    top4 = []
+    let city1 = document.querySelector('#bc_city1').innerText
+    top4.push(city1)
+    let city2 = document.querySelector('#bc_city2').innerText
+    top4.push(city2)
+    let city3 = document.querySelector('#bc_city3').innerText
+    top4.push(city3)
+    let city4 = document.querySelector('#bc_city4').innerText
+    top4.push(city4)
+    //console.log(top4)
+    let prov = 'bc'
+    initMap(top4, prov)
+ }
+
+//Initialize and add the map  - DOES NOT WORK WITH LET
+function initMap(top4,prov) { 
+    if(prov =='ab'){
+        // central lat & lon for alberta    
+        var ab = {lat: 52.48, lng: -113.70};
+        // The map, centered atJasper -  creates a new Google maps object.
+        //The center property tells the API where to center the map. The map coordinates are set in the order: latitude, longitude.
+        var map = new google.maps.Map(
+            document.getElementById('map'), {zoom: 6.0, center: ab});
+        // One marker, positioned at jasper
+        //var marker = new google.maps.Marker({position: ab, map: map});
+    }else{
+        // central lat & lon for BC  
+        var bc = {lat: 52.28, lng: -122.70};
+        // The map, centered at -  creates a new Google maps object.
+        //The center property tells the API where to center the map. The map coordinates are set in the order: latitude, longitude.
+        var map = new google.maps.Map(
+            document.getElementById('map'), {zoom: 5.5, center: bc});
+
+    }
+
+    var infowindow = new google.maps.InfoWindow();
+    var marker, i;
+    for (i = 0; i < locations.length; i++) {
+        for(let j = 0; j < top4.length; j++){ 
+            if(top4[j] == locations[i][0]){
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                    map: map
+                    }); 
+
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    return function() {
+                    infowindow.setContent(`<p id="info"> ${locations[i][0]} <br> Forecast: <a href="${locations[i][3]}" target="_blank">${locations[i][3]}</a></p>`);                            
+                
+                    infowindow.open(map, marker);
+                    }
+                })(marker, i));
+            }
+        }
+    }
+
+}   
+
 
 
