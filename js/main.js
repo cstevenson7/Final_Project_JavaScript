@@ -51,7 +51,7 @@ function getTop4(intValue){
     let values1 = []  
 
     for(let[city,coordinates,] of map_object.entries()){
-            fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${coordinates[0]}&lon=${coordinates[1]}&units=metric&appid=72fed5dd48ff06dcf670a1689cf0dc55`)
+            fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${coordinates[0]}&lon=${coordinates[1]}&units=metric&appid=API`)
             //callback function with promise
             //try goes here
             .then(response => response.json())
