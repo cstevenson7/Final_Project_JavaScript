@@ -42,6 +42,8 @@ I choose 11 Alberta locations and 15 BC locations to use for the location select
 
 ##Issues Encountered:
 
+- Having to do so much within the promise or
+  the array f objects was empty
 - Creating dynamic variable names in JavaScript
 - I didn't want all 11 or 15 markers to display on the map
 - Since I had the map on the same page as the temperature data, I had to wait for the
