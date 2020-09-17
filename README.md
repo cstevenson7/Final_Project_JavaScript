@@ -1,12 +1,14 @@
 ##Final_Project_JavaScript
+
 I originally started this project in Flask and then switched to Angular.
 Then I decided to make sure I could what I wanted with just JavaScript
 first then move it to a framework.
-
 Yeah, that didn't happen...yet
 This app is just straight up JavaScript created with a mobile deployment in mind.
 
+
 ##What it does
+
 If you live in Alberta(or Chicago come mid March you are soooo sick of winter.
 You want to get outside and do something, but your weather still sucks.
 This app displays the 4 warmest locations in Alberta and BC, according 
@@ -15,6 +17,7 @@ I choose 11 Alberta locations and 15 BC locations to use for the location select
 
 
 ##How it works
+
 - Two buttons on the home page that call the getTop4 function when clicked and pass in an integer value
    to represent AB or BC
 - An if statement determines if the user choose to get AB or BC temperatures and a map object of AB or BC 
@@ -31,12 +34,14 @@ I choose 11 Alberta locations and 15 BC locations to use for the location select
 - The user can click on the map marker and an info window pops up with the city name and
    the URL of the Environment Canada weather forecast for the city. 
 
+
 ##TODO
+
 - Move to a framework and deploy
 
 
+##Issues Encountered:
 
-Problems:
 - Creating dynamic variable names in JavaScript
 - I didn't want all 11 or 15 markers to display on the map
 - Since I had the map on the same page as the temperature data, I had to wait for the
