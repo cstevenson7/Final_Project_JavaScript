@@ -18,7 +18,7 @@ I choose 11 Alberta locations and 15 BC locations to use for the location select
 
 ##How it works
 
-- Two buttons on the home page that call the getTop4 function when clicked and pass in an integer value
+- Two buttons on the home page call the getTop4 function when clicked and pass in an integer value
    to represent AB or BC
 - An if statement determines if the user choose to get AB or BC temperatures and a map object of AB or BC 
   locations is used in a for loop
