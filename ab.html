@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js" defer></script>
@@ -34,10 +33,10 @@
         </div>
       </nav>       
       
-    
-        <!--Bootstrap Grid for page   ;setTimeout(top4List(),500)-->
+            <!--Bootstrap Grid for page-->
     <div class="container_ab">
-            <button type="button" class="btn btn-warning" id="ab_Top4_but" onClick="getTop4('1')">Click for the 4 Warmest Locations in ALberta</button> 
+            <button type="button" class="btn btn-warning" id="ab_Top4_but" onClick="getTop4('1')">Click for the 4 Warmest Locations in ALberta</button>
+
         <div class="row" >
             <!--column1-->
             <div class="col-sm" id="col1_ab">
@@ -59,7 +58,8 @@
                         <p>Current conditions</p>                                            
                     </div>
                 </div>
-            </div>       
+            </div>  
+
             <!--column2-->
             <div class="col-sm" id="col2_ab">              
                     <!-- City2-->
@@ -77,10 +77,10 @@
                             <div class="card-body">
                                 <h6 class="card-title" id="ab_current4"><font color= "gray">Current Temperature</font></h6> 
                                 <h6 class="card-title" id="ab_description4"><font color= "gray">Current Conditions</font></h6>
-                                <p>Current conditions</p>                                            
+                                <p>Current onditions</p>
                             </div>
                         </div>
-            </div>
+                </div>
         
         </div>
         <button type="button" class="btn btn-warning" id="ab_Top4_map" onClick="getABMarkers()">See Locations on Map</button>
@@ -94,7 +94,7 @@
              ['Edmonton',53.55,-113.49,'https://weather.gc.ca/city/pages/ab-50_metric_e.html'],
              ['Banff',51.18,-115.57,'https://weather.gc.ca/city/pages/ab-49_metric_e.html'],
              ['Nordegg',52.47,-116.08,'https://weather.gc.ca/city/pages/ab-38_metric_e.html'],
-             ['Jasper',52.57,-118.08,'https://weather.gc.ca/city/pages/ab-70_metric_e.html'],
+             ['Jasper',52.87,-118.08,'https://weather.gc.ca/city/pages/ab-70_metric_e.html'],
              ['Drumheller',51.46,-112.71,'https://weather.gc.ca/city/pages/ab-62_metric_e.html'],
              ['Lethbridge',49.70,-112.85,'https://weather.gc.ca/city/pages/ab-30_metric_e.html'],
              ['Peace River',56.23,-117.33,',https://weather.gc.ca/city/pages/ab-25_metric_e.html'],
@@ -104,9 +104,12 @@
 
          ];
     </script>             
-            
+      <!--This makes the map persistant on the page
+    src="https://maps.googleapis.com/maps/api/js?key=API_KEY_HERE&callback=initMap">-->      
     <script defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARZwui8U4TYUvdBPwTVKwCr-LlSmFmKsI">              
+
+   src="https://maps.googleapis.com/maps/api/js?key=API_KEY_HERE">      
+                
 
     </script>
   

@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js" defer></script>
@@ -31,7 +30,6 @@
             <li class="nav-item">
               <a class="nav-link" href="./ab.html">AB</a>
             </li>
-
         </div>
       </nav> 
  
@@ -87,9 +85,9 @@
         <button type="button" class="btn btn-warning" id="ab_Top4_map" onClick="getBCMarkers()">See Locations on Map</button>
     </div>
     <!--The div element for the map -->
-    <div id="map"></div>    
-    <script>
+    <div id="map"></div> 
 
+    <script>
         var locations= [
             ['Invermere',50.51,-116.03,'https://weather.gc.ca/city/pages/bc-72_metric_e.html'],
             ['Cranbrook',49.51,-115.77,'https://weather.gc.ca/city/pages/bc-77_metric_e.html'],
@@ -109,11 +107,11 @@
         ];
 
     </script>
-        
+    <!--This makes the map persistant on the page
+    src="https://maps.googleapis.com/maps/api/js?key=API_KEY_HERE&callback=initMap">-->        
             
-  <script defer
-      src="https://maps.googleapis.com/maps/api/js?key=API_KEY_HERE">              
-
+  <script defer  
+      src="https://maps.googleapis.com/maps/api/js?key=API_KEY_HERE">
   </script>
 
 </body>
