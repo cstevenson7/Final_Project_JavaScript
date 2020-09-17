@@ -4,7 +4,7 @@ I originally started this project in Flask and then switched to Angular.
 Then I decided to make sure I could what I wanted with just JavaScript
 first then move it to a framework.
 Yeah, that didn't happen...yet
-This app is just straight up JavaScript created with a mobile deployment in mind.
+This app is just straight up JavaScript and Bootstrap created with a mobile deployment in mind.
 
 
 ##What it does
