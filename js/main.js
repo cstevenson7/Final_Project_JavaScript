@@ -4,7 +4,7 @@ let ab_map = new Map(Object.entries({
     'Edmonton':[53.55,-113.49],
     'Banff':[51.18,-115.57],
     'Nordegg':[52.47,-116.08],
-    'Jasper':[52.57,-118.08],
+    'Jasper':[52.87,-118.08],
     'Drumheller':[51.46,-112.71],
     'Lethbridge':[49.70,-112.85],
     'Peace River':[56.23,-117.33],
@@ -14,9 +14,9 @@ let ab_map = new Map(Object.entries({
 }));
 
 let bc_map = new Map(Object.entries({
-    'Radium':[50.62,-116.07],
+    'Invermere':[50.51,-116.03],
     'Cranbrook':[49.51,-115.77],
-    'Fernie':[49.50,-115.06],
+    'Sparwood':[49.73,-114.88],
     'Kamlooops':[50.67,-120.33],
     'Kelowna':[49.89, -119.50],
     'Penticton':[49.50,-119.59],
@@ -40,8 +40,12 @@ function bcRedirect(){
     window.location.href= 'bc.html'; 
 }
 
+/****
+ * @param intValue 
+**/
+
 function getTop4(intValue){
-    // // From OnClick events - 1 is Alberta, 2 is BC
+    // From OnClick events - 1 is Alberta, 2 is BC
     if(intValue === '1'|| intValue === 1){
         map_object = ab_map;
     }else{
@@ -49,9 +53,8 @@ function getTop4(intValue){
     }
   
     let values1 = []  
-
-    for(let[city,coordinates,] of map_object.entries()){
-            fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${coordinates[0]}&lon=${coordinates[1]}&units=metric&appid=API`)
+    for(let[city,coordinates,] of map_object.entries()){      
+            fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${coordinates[0]}&lon=${coordinates[1]}&units=metric&appid=API_KEY_HERE`)
             //callback function with promise
             //try goes here
             .then(response => response.json())
@@ -240,12 +243,19 @@ function getTop4(intValue){
     initMap(top4, prov)
  }
 
+
+ /***
+  * @param top4
+  * @param prov
+  */
+
+
 //Initialize and add the map  - DOES NOT WORK WITH LET
 function initMap(top4,prov) { 
     if(prov =='ab'){
         // central lat & lon for alberta    
         var ab = {lat: 52.48, lng: -113.70};
-        // The map, centered atJasper -  creates a new Google maps object.
+        // The map, centered at Edmonton -  creates a new Google maps object.
         //The center property tells the API where to center the map. The map coordinates are set in the order: latitude, longitude.
         var map = new google.maps.Map(
             document.getElementById('map'), {zoom: 6.0, center: ab});
@@ -254,8 +264,6 @@ function initMap(top4,prov) {
     }else{
         // central lat & lon for BC  
         var bc = {lat: 52.28, lng: -122.70};
-        // The map, centered at -  creates a new Google maps object.
-        //The center property tells the API where to center the map. The map coordinates are set in the order: latitude, longitude.
         var map = new google.maps.Map(
             document.getElementById('map'), {zoom: 5.5, center: bc});
 
