@@ -53,4 +53,5 @@ I choose 11 Alberta locations and 15 BC locations to use for the location select
   weather forecast and I needed help with the correct syntax and ended up using a f string
 - Getting the CSS to display the columns correctly on the mobile view
 - Remembering to remove API keys from code before committing
-- Tried changing the vars to lets in the Google Maps JavaScript API, but the map quit working.
+- Tried changing the vars to lets in the Google Maps JavaScript API, but the map quit working
+- getting try catches to work
