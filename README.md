@@ -32,7 +32,9 @@ I choose 11 Alberta locations and 15 BC locations to use for the location select
 - If the user wants to see the 4 locations on a map, they click on a button that triggers
   the Google Maps JavaScript API. 
 - The user can click on the map marker and an info window pops up with the city name and
-   the URL of the Environment Canada weather forecast for the city. 
+   the URL of the Environment Canada weather forecast for the city.
+- I have two try catch statements because of the weird first three city returns in the
+  getTop4 function
 
 
 ##TODO
